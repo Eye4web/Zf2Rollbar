@@ -1,0 +1,16 @@
+{
+    "name": "eye4web/zf2rollbar",
+    "require": {
+        "php": ">=5.4",
+        "rollbar/rollbar": "~0.9.8",
+        "zendframework/zendframework": "2.0.*"
+    },
+    "autoload": {
+        "psr-0": {
+            "Eye4web\\Zf2Rollbar\\": "src"
+         },
+        "classmap": [
+            "src/Eye4web/Zf2Rollbar/Module.php"
+        ]
+    }
+}
