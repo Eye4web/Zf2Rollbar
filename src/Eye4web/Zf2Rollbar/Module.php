@@ -17,6 +17,19 @@ class Module
         if (!isset($config['eye4web']['zf2rollbar'])) {
             throw new \Exception('Rollbar configuration missing. Please copy .dist config file into your autoloader directory.');
         }
+
+        if ($serviceManager->has('zfcuser_auth_service')) {
+            $authService = $serviceManager->get('zfcuser_auth_service');
+            if ($authService->hasIdentity()) {
+                $user = $authService->getIdentity();
+                $config['eye4web']['zf2rollbar']['person'] = [
+                    'id' => $user->getId(),
+                    'email' => $user->getEmail(),
+                    'username' => $user->getDisplayName()
+                ];
+            }
+        }
+
         \Rollbar::init($config['eye4web']['zf2rollbar'], $set_exception_handler = false, $set_error_handler = true);
 
         $eventManager->attach('dispatch.error', function($event) {
