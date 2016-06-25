@@ -2,7 +2,7 @@
     "name": "eye4web/zf2rollbar",
     "require": {
         "php": ">=5.4",
-        "rollbar/rollbar": "0.18.0",
+        "rollbar/rollbar": "0.18.0@dev",
         "zendframework/zendframework": "2.*"
     },
     "autoload": {
