@@ -1,6 +1,5 @@
 {
     "name": "eye4web/zf2rollbar",
-    "minimum-stability": "dev",
     "require": {
         "php": ">=5.4",
         "rollbar/rollbar": "0.18.0",
