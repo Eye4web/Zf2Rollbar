@@ -18,6 +18,14 @@ class Module
             throw new \Exception('Rollbar configuration missing. Please copy .dist config file into your autoloader directory.');
         }
 
+        $config['checkIgnore'] = function ($isUncaught, $exception, $payload) {
+            if ($isUncaught) {
+                return true;
+            }
+
+            return false;
+        };
+
         if ($serviceManager->has('zfcuser_auth_service')) {
             $authService = $serviceManager->get('zfcuser_auth_service');
             if ($authService->hasIdentity()) {
