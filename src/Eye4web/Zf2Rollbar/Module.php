@@ -19,14 +19,6 @@ class Module
         }
         $rollbarConfig = $config['eye4web']['zf2rollbar'];
 
-        $rollbarConfig['checkIgnore'] = function ($isUncaught, $exception, $payload) {
-            if ($isUncaught) {
-                return true;
-            }
-
-            return false;
-        };
-
         if ($serviceManager->has('zfcuser_auth_service')) {
             $authService = $serviceManager->get('zfcuser_auth_service');
             if ($authService->hasIdentity()) {
